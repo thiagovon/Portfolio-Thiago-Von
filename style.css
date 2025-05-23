@@ -1,0 +1,629 @@
+/* RESET BÁSICO E FONTES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #eee;
+    background-color: #333;
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #eee;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+}
+
+h2 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 60px;
+    color: #222; /* Títulos de seções como "Sobre Mim" terão cor escura em fundo claro */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------------------- */
+/* SEÇÃO DE ABERTURA (HERÓI) E NAVEGAÇÃO INTEGRADA */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* NAVEGAÇÃO INTEGRADA (HERO) */
+.main-nav-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 40px;
+    position: relative;
+    z-index: 1000;
+}
+
+.nav-logo-hero {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9em;
+    color: #eee;
+    letter-spacing: 0.25em;
+    word-spacing: 0.4em;
+}
+
+.nav-links-hero {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links-hero li {
+    margin-left: 50px;
+}
+
+.nav-links-hero a, .dropbtn-hero {
+    color: #eee;
+    font-weight: 400;
+    font-size: 0.85em;
+    padding: 5px 0;
+    letter-spacing: 0.15em;
+    word-spacing: 0.2em;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-links-hero a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    display: block;
+    margin-top: 3px;
+    left: 0;
+    background: #eee;
+    transition: width 0.3s ease;
+}
+
+.nav-links-hero a:hover::after {
+    width: 100%;
+}
+
+/* ESTILOS PARA O DROPDOWN */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn-hero i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+    font-size: 0.7em;
+}
+
+.dropdown-content-hero {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+    z-index: 1001;
+    border-radius: 5px;
+    overflow: hidden;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dropdown-content-hero a {
+    color: #eee;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 0.8em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    word-spacing: 0.1em;
+}
+
+.dropdown-content-hero a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content-hero {
+    display: block;
+}
+
+.dropdown:hover .dropbtn-hero i {
+    transform: rotate(180deg);
+}
+
+/* ---------------------------------------------------------------------- */
+/* SEÇÃO HERO - CONTEÚDO PRINCIPAL (Just 4 fun) */
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 30px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+    margin-top: auto;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    color: #eee;
+    margin-bottom: 0;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+    word-spacing: 0.3em;
+}
+
+/* ---------------------------------------------------------------------- */
+/* SEÇÃO SOBRE MIM */
+.about-section {
+    background-color: #ffffff;
+    padding: 100px 30px;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    color: #444;
+    line-height: 1.7;
+}
+
+.about-content h2 {
+    color: #222;
+}
+
+.about-content p {
+    color: #555;
+}
+
+/* ---------------------------------------------------------------------- */
+/* SEÇÃO DE GALERIA - AGORA COMO CARROSSEL COM SETAS */
+.gallery-section {
+    padding: 80px 0; /* Ajustado para 0 nas laterais para que as imagens possam ir até a borda se quiser */
+    background-color: #fcfcfc;
+    position: relative; /* Necessário para posicionar as setas */
+    overflow: hidden; /* Importante para esconder imagens fora da vista */
+}
+
+.gallery-section h2 {
+    color: #222; /* Título da galeria em cor escura */
+    margin-bottom: 40px; /* Reduzindo um pouco o margin-bottom para não ter tanto espaço */
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100vw; /* Garante que o contêiner do carrossel ocupe toda a largura da viewport */
+    margin: 0 auto;
+    overflow: hidden; /* Esconde as partes das imagens que estão fora da vista */
+    padding: 0 50px; /* Padding para garantir que as setas tenham espaço nas laterais */
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Transição suave para a rolagem */
+    /* Defina uma largura grande o suficiente para todas as imagens. Isso será ajustado via JS */
+}
+
+.carousel-track img {
+    flex-shrink: 0; /* Impede que as imagens encolham */
+    width: 400px; /* Largura fixa de cada imagem no carrossel (ajuste conforme necessário) */
+    height: 500px; /* Altura fixa de cada imagem no carrossel (ajuste conforme necessário) */
+    object-fit: cover;
+    margin: 0 15px; /* Espaçamento entre as imagens no carrossel */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button.prev {
+    left: 10px;
+}
+
+.carousel-button.next {
+    right: 10px;
+}
+
+.carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* SEÇÃO DE VÍDEO - AUMENTANDO O TAMANHO */
+.video-section {
+    padding: 80px 30px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.video-wrapper {
+    max-width: 1200px; /* Aumentando a largura máxima do vídeo */
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------------------------------------------------------------------- */
+/* SEÇÃO DE CONTATO */
+.contact-section {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    
+    background-image: url('Portfólio/EdificioPietro.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 80px 20px;
+}
+
+.contact-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.contact-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 0;
+}
+
+.contact-content h2 {
+    font-size: 3em;
+    color: white;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-top: -50px;
+}
+
+.contact-email {
+    font-size: 1.8em;
+    color: #007bff;
+    font-weight: 400;
+    text-decoration: none;
+    margin-bottom: 30px;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.contact-email:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 2.5em;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px) scale(1.1);
+    color: #007bff;
+}
+
+/* ---------------------------------------------------------------------- */
+/* RODAPÉ - REMOVENDO ESPAÇO CINZA */
+.main-footer {
+    background-color: #222; /* Fundo escuro */
+    color: #eee;
+    text-align: center;
+    padding: 30px 0;
+    /* margin-top: 80px; foi ajustado, mas o problema pode ser do elemento anterior */
+    font-size: 0.8em;
+
+    /* REMOVER ESPAÇO CINZA: */
+    /* Se houver um espaço cinza entre o contato e o rodapé,
+       isso pode ser um margin-bottom no .contact-section ou um margin-top no .main-footer
+       ou, mais provavelmente, a cor de fundo do body aparecendo entre as seções.
+       Vamos garantir que não há margin-bottom no contact-section e que o footer está colado. */
+    margin-top: 0; /* Garante que o rodapé não tenha margem superior */
+    padding-top: 30px; /* Garante padding interno */
+    padding-bottom: 30px;
+}
+/* Se o espaço cinza ainda aparecer, pode ser a cor de fundo do body.
+   Garanta que a seção de contato vá até o fim e o rodapé comece logo em seguida. */
+
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVIDADE GERAL */
+@media (max-width: 992px) { /* Tablets maiores e laptops */
+    .main-nav-hero {
+        padding: 0 30px;
+    }
+    .nav-links-hero li {
+        margin-left: 40px;
+    }
+    .nav-logo-hero {
+        font-size: 0.85em;
+        letter-spacing: 0.2em;
+        word-spacing: 0.3em;
+    }
+    .nav-links-hero a, .dropbtn-hero {
+        font-size: 0.75em;
+        letter-spacing: 0.1em;
+        word-spacing: 0.15em;
+    }
+    .hero-content {
+        max-width: 700px;
+    }
+    .hero-subtitle {
+        font-size: 1em;
+        letter-spacing: 0.15em;
+        word-spacing: 0.2em;
+    }
+
+    /* Galeria responsiva */
+    .carousel-track img {
+        width: 300px; /* Largura da imagem em telas médias */
+        height: 400px;
+    }
+
+    /* Contato responsivo */
+    .contact-section {
+        min-height: 350px;
+        padding: 60px 20px;
+    }
+    .contact-content h2 {
+        font-size: 2.5em;
+        margin-top: -30px;
+    }
+    .contact-email {
+        font-size: 1.5em;
+    }
+    .social-icons a {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) { /* Tablets e celulares maiores */
+    .main-nav-hero {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: static; /* Não flutua em mobile, se posiciona no fluxo */
+        width: 100%;
+    }
+    .nav-links-hero {
+        flex-direction: column;
+        margin-top: 15px;
+        width: 100%;
+    }
+    .nav-links-hero li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .nav-links-hero a, .dropbtn-hero {
+        font-size: 0.8em;
+        letter-spacing: 0.08em;
+        word-spacing: 0.1em;
+        display: block;
+        text-align: center;
+    }
+    .nav-logo-hero {
+        font-size: 1em;
+        letter-spacing: 0.15em;
+        word-spacing: 0.2em;
+    }
+
+    /* Dropdown em Mobile */
+    .dropdown {
+        width: 100%;
+    }
+    .dropdown-content-hero {
+        position: static;
+        box-shadow: none;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        border-radius: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        transform: none;
+        text-align: center;
+    }
+    .dropdown-content-hero a {
+        font-size: 0.75em;
+        padding: 8px 0;
+        letter-spacing: 0.05em;
+        word-spacing: 0.05em;
+    }
+    .dropbtn-hero i {
+        font-size: 0.6em;
+        margin-left: 3px;
+    }
+
+    .hero-content {
+        max-width: 90%;
+        bottom: 5%;
+    }
+    .hero-subtitle {
+        font-size: 1em;
+        letter-spacing: 0.15em;
+        word-spacing: 0.2em;
+    }
+
+    /* Galeria responsiva */
+    .carousel-track img {
+        width: 250px; /* Largura da imagem em telas pequenas */
+        height: 350px;
+        margin: 0 10px; /* Espaçamento menor entre as imagens */
+    }
+
+    /* Contato responsivo */
+    .contact-section {
+        min-height: 300px;
+        padding: 40px 15px;
+    }
+    .contact-content h2 {
+        font-size: 2em;
+        margin-top: -20px;
+    }
+    .contact-email {
+        font-size: 1.2em;
+    }
+    .social-icons a {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) { /* Celulares pequenos */
+    .hero-section {
+        height: 80vh;
+    }
+    .hero-content {
+        padding: 20px;
+        bottom: 5%;
+    }
+    .hero-subtitle {
+        font-size: 0.9em;
+        letter-spacing: 0.1em;
+        word-spacing: 0.15em;
+    }
+
+    .main-nav-hero {
+        padding: 15px;
+    }
+    .nav-logo-hero {
+        font-size: 0.9em;
+        letter-spacing: 0.1em;
+        word-spacing: 0.15em;
+    }
+    .nav-links-hero a, .dropbtn-hero {
+        font-size: 0.7em;
+        letter-spacing: 0.05em;
+        word-spacing: 0.05em;
+    }
+    .dropdown-content-hero a {
+        font-size: 0.7em;
+        padding: 6px 0;
+        letter-spacing: 0.02em;
+        word-spacing: 0.02em;
+    }
+
+    /* Galeria responsiva */
+    .carousel-track img {
+        width: 200px; /* Largura da imagem em celulares muito pequenos */
+        height: 300px;
+        margin: 0 5px; /* Espaçamento ainda menor */
+    }
+
+    /* Contato responsivo */
+    .contact-section {
+        min-height: 250px;
+        padding: 30px 10px;
+    }
+    .contact-content h2 {
+        font-size: 1.8em;
+        margin-top: -15px;
+    }
+    .contact-email {
+        font-size: 1em;
+    }
+    .social-icons a {
+        font-size: 1.5em;
+    }
+    .main-footer {
+        font-size: 0.7em;
+        padding: 20px 0;
+    }
+}
