@@ -63,4 +63,3 @@
     setTimeout(() => {
         moveToSlide(currentIndex);
     }, 100); 
-});
