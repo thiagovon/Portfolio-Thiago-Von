@@ -10,19 +10,128 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .main-footer {
+            background-color: white;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .main-footer p {
+            margin: 0;
+            padding: 10px 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .about-section {
+            padding: 80px 20px;
+            background-color: white;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .about-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .about-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+
+        .camera-info {
+            background-color: #f8f8f8;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .camera-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .camera-info p {
+            font-family: 'Open Sans', sans-serif;
+            color: #444;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .photo-item {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 40px auto;
+            }
+
+            .about-text {
+                padding: 0 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <section class="hero-section">
-        <video class="hero-background-video" autoplay loop muted playsinline>
-            <source src="../Fotos/Eu/ThiagoVon.mp4" type="video/mp4">
-            Seu navegador não suporta vídeos.
-        </video>
+        <img src="../Fotos/Eu/ThiagoVon.jpeg" alt="ThiagoVon" class="hero-background-image">
         <div class="hero-overlay"></div>
         
         <nav class="main-nav-hero">
             <a href="../index.html" class="nav-logo-hero">THIAGO VON</a>
             <ul class="nav-links-hero">
-                <li><a href="../index.html#sobre">SOBRE</a></li>
+                <li><a href="eu.html">EU</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn-hero">FOTOGRAFIA <i class="fas fa-caret-down"></i></a>
                     <div class="dropdown-content-hero">
@@ -32,7 +141,7 @@
                         <a href="eu.html">Eu</a>
                     </div>
                 </li>
-                <li><a href="../index.html#contato">CONTATO</a></li>
+                <li><a href="#contato">CONTATO</a></li>
             </ul>
         </nav>
 
@@ -41,9 +150,40 @@
         </div>
     </section>
 
-    <section class="gallery-grid">
-        <div class="grid-container">
-            <!-- As imagens serão adicionadas aqui -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Minha História com a Fotografia</h2>
+                <p>
+                    Minha paixão pela fotografia começou novo, minha mãe sempre teve como hobby a fotografia e acredito que eu tenha herdado o bom gosto dela.
+                </p>
+                <p>
+                    Nunca tive um tema específico para fotografar, sempre fui do tipo que sai de casa com a câmera na mão e registra o que surgir pelo caminho.
+                </p>
+                <p>
+                    Atualmente curso Ciência da Computação na PUC-Rio e todo o desenvolvimento desse site foi feito por mim. Uni o útil ao agradável, né?! Hahahaha
+                </p>
+
+            </div>
+
+            <div class="camera-info">
+                <h3>Equipamento</h3>
+                <p>
+                    [Canon EOS1100D, lente 18-55mm e Iphone 13 mini]
+                </p>
+            </div>
+
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <img src="../Fotos/Eu/ThiagoCamera2.jpeg" alt="ThiagoCamera">
+                </div>
+                <div class="photo-item">
+                    <img src="../Fotos/Eu/ThiagoVon.jpeg" alt="ThiagoVon">
+                </div>
+                <div class="photo-item">
+                    <img src="../Fotos/Eu/ThiagoPerfil.jpeg" alt="ThiagoPerfil">
+                </div>
+            </div>
         </div>
     </section>
 

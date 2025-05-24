@@ -10,6 +10,10 @@ body {
     line-height: 1.6;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Seção Hero */
 .hero-section {
     position: relative;

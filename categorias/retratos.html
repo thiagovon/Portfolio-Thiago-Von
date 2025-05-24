@@ -10,16 +10,203 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 0;
+            margin-top: -20px;
+            position: relative;
+        }
+
+        .filter-main-button {
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-main-button:hover {
+            background-color: #444;
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-options {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            width: auto;
+            white-space: nowrap;
+            margin-top: 10px;
+        }
+
+        .color-options.show {
+            display: block;
+            opacity: 1;
+        }
+
+        .filter-button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: white;
+            color: #333;
+            border: 1px solid #eee;
+        }
+
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .filter-button.all .color-dot {
+            background: linear-gradient(45deg, #3498db, #2ecc71, #e74c3c, #f1c40f, #000000);
+        }
+
+        .filter-button.blue .color-dot {
+            background-color: #3498db;
+        }
+
+        .filter-button.green .color-dot {
+            background-color: #2ecc71;
+        }
+
+        .filter-button.red .color-dot {
+            background-color: #e74c3c;
+        }
+
+        .filter-button.yellow .color-dot {
+            background-color: #f1c40f;
+        }
+
+        .filter-button.black .color-dot {
+            background-color: #34495e;
+        }
+
+        .filter-button.black-and-white .color-dot {
+            background: linear-gradient(45deg, #000000 50%, #ffffff 50%);
+            border: 1px solid #ddd;
+        }
+
+        .filter-button:hover {
+            background-color: #f8f8f8;
+            transform: scale(1.05);
+        }
+
+        .filter-button.active {
+            background-color: #f0f0f0;
+            border-color: #ddd;
+        }
+
+        .grid-item {
+            transition: all 0.5s ease;
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 66.67%;
+            overflow: hidden;
+            display: block;
+        }
+
+        .grid-item.hidden {
+            display: none;
+        }
+
+        .grid-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1600px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-image {
+            width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .footer-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-photo:hover {
+            opacity: 1;
+        }
+
+        .main-footer {
+            background-color: white;
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .main-footer p {
+            margin: 0;
+            padding: 10px 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
 </head>
 <body>
     <section class="hero-section">
-        <img src="../Fotos/Retratos/Arte/Untitled.jpeg" alt="Foto principal de retratos" class="hero-background-image">
+        <img src="../Fotos/Retratos/Cristo/RioAvião.jpeg" alt="Foto principal de retratos" class="hero-background-image">
         <div class="hero-overlay"></div>
         
         <nav class="main-nav-hero">
             <a href="../index.html" class="nav-logo-hero">THIAGO VON</a>
             <ul class="nav-links-hero">
-                <li><a href="../index.html#sobre">SOBRE</a></li>
+                <li><a href="eu.html">EU</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropbtn-hero">FOTOGRAFIA <i class="fas fa-caret-down"></i></a>
                     <div class="dropdown-content-hero">
@@ -29,7 +216,7 @@
                         <a href="eu.html">Eu</a>
                     </div>
                 </li>
-                <li><a href="../index.html#contato">CONTATO</a></li>
+                <li><a href="#contato">CONTATO</a></li>
             </ul>
         </nav>
 
@@ -38,397 +225,453 @@
         </div>
     </section>
 
+    <div class="filter-container">
+        <button class="filter-main-button">
+            <i class="fas fa-palette"></i>
+        </button>
+        <div class="color-options">
+            <button class="filter-button all active" data-color="all">
+                <span class="color-dot"></span>
+                Todos
+            </button>
+            <button class="filter-button blue" data-color="blue">
+                <span class="color-dot"></span>
+                Azul
+            </button>
+            <button class="filter-button green" data-color="green">
+                <span class="color-dot"></span>
+                Verde
+            </button>
+            <button class="filter-button red" data-color="red">
+                <span class="color-dot"></span>
+                Vermelho
+            </button>
+            <button class="filter-button yellow" data-color="yellow">
+                <span class="color-dot"></span>
+                Amarelo
+            </button>
+            <button class="filter-button black" data-color="black">
+                <span class="color-dot"></span>
+                Preto
+            </button>
+            <button class="filter-button black-and-white" data-color="black-and-white">
+                <span class="color-dot"></span>
+                Preto e Branco
+            </button>
+        </div>
+    </div>
+
     <section class="gallery-grid">
         <div class="grid-container">
-            <div class="grid-item">
+            <!-- Fotos com predominância de azul (pasta AzulEscuro) -->
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Veleiro.jpeg" alt="Veleiro1">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Veleiro2.jpeg" alt="Veleiro2">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Veleiro3.jpeg" alt="Veleiro3">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/VistaLancha.jpeg" alt="VistaLancha">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/VistaLanchaemPe.jpeg" alt="VistaLancha2">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Angra.jpeg" alt="Angra">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Angra2.jpeg" alt="Angra2">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Angra3.jpeg" alt="Angra3">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Angra4.jpeg" alt="Angra4">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Angra5.jpeg" alt="Angra5">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Angra6.jpeg" alt="Angra6">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/AzulEscuro/Paraquedas.jpeg" alt="Paraquedas">
             </div>
-            <div class="grid-item">
+
+            <!-- Fotos do Borgo (tons terrosos/amarelados) -->
+            <div class="grid-item" data-color="yellow">
                 <img src="../Fotos/Retratos/Borgo/Borgo.jpg" alt="Borgo">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="yellow">
                 <img src="../Fotos/Retratos/Borgo/Borgo2.jpg" alt="Borgo2">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="yellow">
                 <img src="../Fotos/Retratos/Borgo/Borgo3.jpg" alt="Borgo3">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/AlexandreAna.jpg" alt="AlexandreAna">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/Coruja.jpg" alt="Coruja">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/Carla.jpg" alt="Carla">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/PordoSol.jpg" alt="PordoSol">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/ArpoadorCasal.jpg" alt="ArpoadorCasal">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/PordoSolCampanário.jpg" alt="PordoSolCampanário">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/Amigos.jpeg" alt="Amigos">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/PordoSolEscada.jpeg" alt="PordoSolEscada">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/BernardoeAna.jpeg" alt="Cadeiras">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/PordoSolMaues.jpg" alt="PordoSolMaues">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/ArpoadorCasal2.jpg" alt="ArpoadorCasal2">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/PordoSolMaues2.jpg" alt="PordoSolMaues2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/Olhar.jpg" alt="Olhar">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/PordoSolMaues3.jpg" alt="PordoSolMaues3">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/Cadeiras.jpeg" alt="Cadeiras">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/Reflexo.jpg" alt="Reflexo">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Carnaval/CadeirasMar.jpg" alt="CadeirasMar">
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Airbnb2.jpeg" alt="Airbnb2">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Antena2.jpeg" alt="Antena2">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Arvores.jpg" alt="Arvores">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Cachoeira.jpg" alt="Cachoeira">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/CachoeiraES.JPG" alt="CachoeiraES">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/CachoeiraMG.jpg" alt="CachoeiraMG">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Cadeiras.jpeg" alt="Cadeiras">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/CaminhoVerde.jpeg" alt="CaminhoVerde">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/FundoCachoeira.jpeg" alt="FundoCachoeira">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Carro.jpeg" alt="Carro">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/CarroPonte.jpg" alt="CarroPonte">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/CaixaPassarinho.jpeg" alt="CaixaPassarinho">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/CaminhoTerra.jpeg" alt="CaminhoTerra">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/MontanhasVerde.jpeg" alt="MontanhasVerde">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Prainha.jpg" alt="Prainha">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Restaurante.jpeg" alt="Restaurante">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Restaurante2.jpeg" alt="Restaurante2">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Restaurante3.jpeg" alt="Restaurante3">
+            </div>
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Verde/Antena.jpeg" alt="Antena">
+            </div>
+
+            <!-- Fotos de Natureza (predominância de azul e verde) -->
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/Natureza/Barco.jpg" alt="Barco">
             </div>
-            <div class="grid-item">
+            <div class="grid-item" data-color="blue">
                 <img src="../Fotos/Retratos/Natureza/Barco2.jpg" alt="Barco2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Natureza/BarcoAngra.jpg" alt="Barco3">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/EscadaMar.jpeg" alt="EscadaMar">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Natureza/barco4.jpg" alt="Barco4">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/Orla.jpg" alt="Orla">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato29.jpeg" alt="Retrato 29">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/PraiaES.JPG" alt="PraiaES">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato30.jpeg" alt="Retrato 30">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/PraiaLotada.JPG" alt="PraiaLotada">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato31.jpeg" alt="Retrato 31">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/PraiaLotada2.jpg" alt="PraiaLotada2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato32.jpeg" alt="Retrato 32">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/PontePraia.jpg" alt="PontePraia">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato33.jpeg" alt="Retrato 33">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/SalvaVidas.jpg" alt="SalvaVidas">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato34.jpeg" alt="Retrato 34">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/Requiem.jpg" alt="Requiem">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato35.jpeg" alt="Retrato 35">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/MilhoVerde.jpg" alt="MilhoVerde">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato36.jpeg" alt="Retrato 36">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/BarcoAngra.jpeg" alt="BarcoAngra">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato37.jpeg" alt="Retrato 37">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/Guardasol.jpeg" alt="Guardasol">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato38.jpeg" alt="Retrato 38">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/PraiaZS.jpg" alt="PraiaZS">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato39.jpeg" alt="Retrato 39">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/CostaES.JPG" alt="CostaES">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato40.jpeg" alt="Retrato 40">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/Palmeiras.jpeg" alt="Palmeiras">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato41.jpeg" alt="Retrato 41">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Natureza/PássaroLua.jpg" alt="PássaroLua">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato42.jpeg" alt="Retrato 42">
+
+            <!-- Fotos P&B -->
+            <div class="grid-item" data-color="black-and-white">
+                <img src="../Fotos/Retratos/P&B/Balanço.jpeg" alt="Balanço">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato43.jpeg" alt="Retrato 43">
+            <div class="grid-item" data-color="black-and-white">
+                <img src="../Fotos/Retratos/P&B/JetPássaro.jpeg" alt="JetPássaro">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato44.jpeg" alt="Retrato 44">
+            <div class="grid-item" data-color="black-and-white">
+                <img src="../Fotos/Retratos/P&B/Pesca.jpg" alt="Janela2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato45.jpeg" alt="Retrato 45">
+            <div class="grid-item" data-color="black-and-white">
+                <img src="../Fotos/Retratos/P&B/PraiaP&B.JPG" alt="PraiaP&B">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato46.jpeg" alt="Retrato 46">
+            <div class="grid-item" data-color="black-and-white">
+                <img src="../Fotos/Retratos/P&B/Quadros.jpg" alt="Quadros">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato47.jpeg" alt="Retrato 47">
+
+            <!-- Fotos Escuras -->
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/Antena.jpg" alt="Antena">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato48.jpeg" alt="Retrato 48">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/Avião.jpg" alt="RetratoP&B2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato49.jpeg" alt="Retrato 49">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/BarSantaTeresa.jpg" alt="BarSantaTeresa">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato50.jpeg" alt="Retrato 50">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/Ilha.jpg" alt="Ilha">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato51.jpeg" alt="Retrato 51">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/JanelaAviao.jpg" alt="JanelaAviao">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato52.jpeg" alt="Retrato 52">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/Lampadas.jpg" alt="Lampadas">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato53.jpeg" alt="Retrato 53">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/Lua.jpeg" alt="Lua">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato54.jpeg" alt="Retrato 54">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Escuro/Lua.jpg" alt="Lua2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato55.jpeg" alt="Retrato 55">
+
+            <!-- Fotos do Sol -->
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Sol/BandeiraVermelha.jpeg" alt="BandeiraVermelha">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato56.jpeg" alt="Retrato 56">
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Sol/RecreioChuvoso.jpeg" alt="RecreioChuvoso">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato57.jpeg" alt="Retrato 57">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Sol/Cafeteria.jpeg" alt="Cafeteria">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato58.jpeg" alt="Retrato 58">
+
+            <!-- Fotos de Solidão -->
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Solidão/MocanoCelular.jpeg" alt="MocanoCelular">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato59.jpeg" alt="Retrato 59">
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Solidão/CadeirasSozinhas.jpg" alt="CadeirasSozinhas">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato60.jpeg" alt="Retrato 60">
+
+            <!-- Fotos de Arquitetura -->
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Arquitetura/ParqueMASP.jpeg" alt="ParqueMASP">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato61.jpeg" alt="Retrato 61">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Arquitetura/VistaLiberdade.jpeg" alt="VistaLiberdade">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato62.jpeg" alt="Retrato 62">
+            <div class="grid-item" data-color="black-and-white">
+                <img src="../Fotos/Retratos/Arquitetura/MASPSombra.jpeg" alt="MASPSombra">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato63.jpeg" alt="Retrato 63">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Arquitetura/Quarto.jpg" alt="Quarto">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato64.jpeg" alt="Retrato 64">
+            <div class="grid-item" data-color="black-and-white">
+                <img src="../Fotos/Retratos/Arquitetura/Arquitetura.jpeg" alt="Arquitetura">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato65.jpeg" alt="Retrato 65">
+
+            <!-- Mais fotos de Solidão -->
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Solidão/CadeiraVermelha.JPG" alt="CadeiraVermelha">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato66.jpeg" alt="Retrato 66">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Solidão/Casa.jpg" alt="Casa">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato67.jpeg" alt="Retrato 67">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Solidão/Casal.JPG" alt="Casal">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato68.jpeg" alt="Retrato 68">
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Solidão/Mauricio.jpeg" alt="Mauricio">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato69.jpeg" alt="Retrato 69">
+
+            <!-- Fotos do Cristo -->
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/BandeiraCristo.jpg" alt="BandeiraCristo">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato70.jpeg" alt="Retrato 70">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Bondinhos.jpg" alt="Bondinhos">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato71.jpeg" alt="Retrato 71">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Cristo.jpg" alt="Cristo">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato72.jpeg" alt="Retrato 72">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/CristoLonge.jpg" alt="CristoLonge">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato73.jpeg" alt="Retrato 73">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/DedodeDeus.jpg" alt="DedodeDeus">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato74.jpeg" alt="Retrato 74">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Lagoa1.jpg" alt="Lagoa1">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato75.jpeg" alt="Retrato 75">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Lagoa2.jpg" alt="Lagoa2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato76.jpeg" alt="Retrato 76">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Lagoa3.jpg" alt="Lagoa3">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato77.jpeg" alt="Retrato 77">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Lagoa4.jpg" alt="Lagoa4">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato78.jpeg" alt="Retrato 78">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Lagoa5.jpg" alt="Lagoa5">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato79.jpeg" alt="Retrato 79">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/LagoaCristo.jpg" alt="LagoaCristo">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato80.jpeg" alt="Retrato 80">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/LagoaVista.jpg" alt="LagoaVista">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato81.jpeg" alt="Retrato 81">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Maracana.jpg" alt="Maracana">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato82.jpeg" alt="Retrato 82">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Maracana2.jpg" alt="Maracana2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato83.jpeg" alt="Retrato 83">
+            <div class="grid-item" data-color="green">
+                <img src="../Fotos/Retratos/Cristo/Montanhas.jpeg" alt="Montanhas">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato84.jpeg" alt="Retrato 84">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/MontanhasLonge.jpeg" alt="MontanhasLonge">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato85.jpeg" alt="Retrato 85">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/MontanhasLonge2.jpeg" alt="MontanhasLonge2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato86.jpeg" alt="Retrato 86">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/MontanhasLonge3.jpeg" alt="MontanhasLonge3">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato87.jpeg" alt="Retrato 87">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/MontanhasLonge4.jpeg" alt="MontanhasLonge4">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato88.jpeg" alt="Retrato 88">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/Nuvens.jpg" alt="Nuvens">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato89.jpeg" alt="Retrato 89">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/PaodeAcucar.jpg" alt="PaodeAcucar">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato90.jpeg" alt="Retrato 90">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/PaodeAcucar2.jpg" alt="PaodeAcucar2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato91.jpeg" alt="Retrato 91">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/PedraGavea.jpg" alt="PedraGavea">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato92.jpeg" alt="Retrato 92">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/PrediosLagoa.jpg" alt="PrediosLagoa">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato93.jpeg" alt="Retrato 93">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Cristo/RioAvião.jpeg" alt="RioAvião">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato94.jpeg" alt="Retrato 94">
+
+            <!-- Mais fotos de Arquitetura -->
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Arquitetura/BandeiraJanela.jpg" alt="BandeiraJanela">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato95.jpeg" alt="Retrato 95">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Arquitetura/EdificioPietro.jpeg" alt="EdificioPietro">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato96.jpeg" alt="Retrato 96">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Arquitetura/Centro.jpg" alt="Centro">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato97.jpeg" alt="Retrato 97">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Arquitetura/centro2.jpg" alt="centro2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato98.jpeg" alt="Retrato 98">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Arquitetura/Lapa.jpg" alt="Lapa">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato99.jpeg" alt="Retrato 99">
+            <div class="grid-item" data-color="blue">
+                <img src="../Fotos/Retratos/Arquitetura/LemeRua.jpg" alt="Lapa2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato100.jpeg" alt="Retrato 100">
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Arquitetura/Liberdade.jpeg" alt="Liberdade">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato101.jpeg" alt="Retrato 101">
+
+            <!-- Fotos de Arte -->
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Arte/Untitled.jpeg" alt="Untitled">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato102.jpeg" alt="Retrato 102">
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Arquitetura/MASP.jpeg" alt="MASP">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato103.jpeg" alt="Retrato 103">
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Arquitetura/MASP2.jpeg" alt="MASP2">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato104.jpeg" alt="Retrato 104">
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Carro/Deadpool.jpeg" alt="Deadpool">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato105.jpeg" alt="Retrato 105">
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Arte/Arte.jpeg" alt="Arte">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato106.jpeg" alt="Retrato 106">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Arte/Buda.jpeg" alt="Buda">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato107.jpeg" alt="Retrato 107">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Arte/Exposição.jpeg" alt="Exposição">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato108.jpeg" alt="Retrato 108">
+            <div class="grid-item" data-color="black">
+                <img src="../Fotos/Retratos/Arte/Vicio.jpeg" alt="Vicio">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato109.jpeg" alt="Retrato 109">
+            <div class="grid-item" data-color="red">
+                <img src="../Fotos/Retratos/Arte/FloresRosas.JPG" alt="FloresRosas">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato110.jpeg" alt="Retrato 110">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Arte/FotodoQuadro.jpeg" alt="fotografia">
             </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato111.jpeg" alt="Retrato 111">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato112.jpeg" alt="Retrato 112">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato113.jpeg" alt="Retrato 113">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato114.jpeg" alt="Retrato 114">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato115.jpeg" alt="Retrato 115">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato116.jpeg" alt="Retrato 116">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato117.jpeg" alt="Retrato 117">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato118.jpeg" alt="Retrato 118">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato119.jpeg" alt="Retrato 119">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato120.jpeg" alt="Retrato 120">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato121.jpeg" alt="Retrato 121">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato122.jpeg" alt="Retrato 122">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato123.jpeg" alt="Retrato 123">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato124.jpeg" alt="Retrato 124">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato125.jpeg" alt="Retrato 125">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato126.jpeg" alt="Retrato 126">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato127.jpeg" alt="Retrato 127">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato128.jpeg" alt="Retrato 128">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato129.jpeg" alt="Retrato 129">
-            </div>
-            <div class="grid-item">
-                <img src="../Fotos/Retratos/Retrato130.jpeg" alt="Retrato 130">
+            <div class="grid-item" data-color="yellow">
+                <img src="../Fotos/Retratos/Arte/Kobra.jpeg" alt="Kobra">
             </div>
         </div>
     </section>
@@ -455,5 +698,52 @@
     <footer class="main-footer">
         <p>&copy; 2025 Thiago Von. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainButton = document.querySelector('.filter-main-button');
+            const colorOptions = document.querySelector('.color-options');
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const gridItems = document.querySelectorAll('.grid-item');
+
+            // Toggle color options
+            mainButton.addEventListener('click', () => {
+                colorOptions.classList.toggle('show');
+            });
+
+            // Close color options when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.filter-container')) {
+                    colorOptions.classList.remove('show');
+                }
+            });
+
+            // Filter functionality
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const color = button.getAttribute('data-color');
+
+                    gridItems.forEach(item => {
+                        if (color === 'all' || item.getAttribute('data-color') === color) {
+                            item.classList.remove('hidden');
+                        } else {
+                            item.classList.add('hidden');
+                        }
+                    });
+
+                    // Update main button text
+                    mainButton.innerHTML = `<i class="fas fa-palette"></i>`;
+
+                    // Close the color options
+                    colorOptions.classList.remove('show');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

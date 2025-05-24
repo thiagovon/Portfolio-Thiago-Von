@@ -58,3 +58,30 @@ function toggleSound(button) {
         icon.className = 'fas fa-volume-mute';
     }
 }
+
+// Smooth scroll for all anchor links
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all anchor links
+    const allLinks = document.querySelectorAll('a[href*="#"]');
+    
+    allLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Get the target section id from the href
+            const targetId = this.getAttribute('href').split('#')[1];
+            
+            // Only handle if it's an internal link with a target
+            if (targetId && !this.href.includes('://')) {
+                const targetSection = document.getElementById(targetId);
+                
+                // If target section exists on current page
+                if (targetSection) {
+                    e.preventDefault();
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    });
+});
