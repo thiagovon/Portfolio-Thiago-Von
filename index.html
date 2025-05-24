@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
 
@@ -24,10 +25,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropbtn-hero">FOTOGRAFIA <i class="fas fa-caret-down"></i></a> 
                     <div class="dropdown-content-hero"> 
-                        <a href="#galeria-cozinha">Cozinha</a>
-                        <a href="#galeria-paisagens">Paisagens</a>
-                        <a href="#galeria-eventos">Eventos</a>
-                        <a href="#galeria-retratos">Retratos</a>
+                        <a href="categorias/cozinha.html">Cozinha</a> 
+                        <a href="categorias/paisagens.html">Paisagens</a>
+                        <a href="categorias/eventos.html">Eventos</a>
+                        <a href="categorias/retratos.html">Retratos</a>
                     </div>
                 </li>
                 <li><a href="#contato">CONTATO</a></li>
@@ -39,46 +40,86 @@
         </div>
     </section>
 
-    <section id="sobre" class="about-section">
-        <div class="about-content">
-            <h2>🤍</h2>
-            <p>A fotografia entrou na minha vida como hobby, uma maneira de eternizar momentos, detalhes e sentimentos que muitas vezes passam despercebidos. Sempre capturando experiências, paisagens, pessoas e momentos que expressem algo com significado mais do que o escrito. Mais do que fotos, acredito na força de compartilhar olhares, inspirar e conectar através da arte de fotografia.</p>
-        </div>
-    </section>
-    
     <section id="galeria" class="gallery-section">
-        <h2>Registros de dias aleatórios</h2>
-        <div class="carousel-container">
-            <div class="carousel-track">
-                <img src="Portfólio/gaivota.jpg" alt="Gaivota no pier">
-                <img src="Portfólio/PalmeirasRecreio.jpeg" alt="Palmeiras no Recreio">
-                <img src="Portfólio/BandeiraBrasil.jpg" alt="Bandeira do Brasil">
-                <img src="Portfólio/Barco.jpeg" alt="Veleiro no mar">
-                <img src="Portfólio/gaivota.jpg" alt="Gaivota 2"> <img src="Portfólio/PalmeirasRecreio.jpeg" alt="Palmeiras 2"> 
+        <h2>INSTAGRAM</h2>
+        <div class="swiper gallery-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Fotos/SP/Arquitetura.jpeg" alt="Gaivota no pier">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Portfólio/PalmeirasRecreio.jpeg" alt="Palmeiras no Recreio">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Portfólio/BandeiraBrasil.jpg" alt="Bandeira do Brasil">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Portfólio/Barco.jpeg" alt="Veleiro no mar">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Fotos/Paisagens/Borgo.jpg" alt="Celular 2">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Portfólio/Gato.jpeg" alt="Gato 2">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Portfólio/Drink.jpeg" alt="Drink">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Fotos/SP/Arquitetura.jpeg" alt="JanelaAvião">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Fotos/SP/Mercedes.jpeg" alt="Minha Imagem 9">
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://www.instagram.com/thiago_vonr" target="_blank">
+                        <img src="Fotos/SP/MASPSombra.jpeg" alt="Minha Imagem 10">
+                    </a>
+                </div>
             </div>
-            <button class="carousel-button prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
-            <button class="carousel-button next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
     <section id="video-experiencias" class="video-section"> 
-        <h2>Experiências em Movimento</h2>
         <div class="video-wrapper">
-            <video controls poster="Portfólio/Cachoeira_Poster.jpg">
+            <video autoplay loop muted playsinline>
                 <source src="Portfólio/Cachoeira.mp4" type="video/mp4">
                 <source src="Portfólio/Cachoeira.webm" type="video/webm">
                 Seu navegador não suporta a tag de vídeo.
             </video>
+            <button class="sound-control" onclick="toggleSound(this)" aria-label="Controle de som">
+                <i class="fas fa-volume-mute"></i>
+            </button>
         </div>
     </section>
 
     <section id="contato" class="contact-section">
-        <div class="contact-overlay"></div> 
         <div class="contact-content">
-            <h2>CONTATO</h2>
-            <a href="mailto:thiagovon37@gmail.com" class="contact-email">thiagovon37@gmail.com</a>
-            
             <div class="social-icons">
+                <a href="mailto:thiagovon37@gmail.com" target="_blank" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
                 <a href="https://www.instagram.com/thiago_vonr" target="_blank" aria-label="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
@@ -88,7 +129,7 @@
                 <a href="https://www.linkedin.com/in/thiagovon/" target="_blank" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-            </div>        
+            </div>         
         </div>
     </section>
     
@@ -96,5 +137,8 @@
         <p>&copy; 2025 Thiago Von. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="js/script.js"></script> </body>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script> 
+</body>
 </html>

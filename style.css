@@ -1,4 +1,4 @@
-/* RESET BÁSICO E FONTES */
+/* Reset e estilos gerais */
 * {
     margin: 0;
     padding: 0;
@@ -6,64 +6,26 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    color: #eee;
-    background-color: #333;
-    scroll-behavior: smooth;
-}
-
-h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
-    color: #eee;
-    margin-bottom: 20px;
-    letter-spacing: 0.05em;
+    line-height: 1.6;
 }
 
-h2 {
-    font-size: 2.5em;
-    text-align: center;
-    margin-top: 80px;
-    margin-bottom: 60px;
-    color: #222; /* Títulos de seções como "Sobre Mim" terão cor escura em fundo claro */
-}
-
-a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-/* ---------------------------------------------------------------------- */
-/* SEÇÃO DE ABERTURA (HERÓI) E NAVEGAÇÃO INTEGRADA */
+/* Seção Hero */
 .hero-section {
     position: relative;
-    width: 100%;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    color: white;
+    width: 100%;
     overflow: hidden;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }
 
 .hero-background-image {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
-    z-index: -2;
+    object-position: center;
 }
 
 .hero-overlay {
@@ -72,558 +34,327 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
+    background: rgba(0, 0, 0, 0.3);
 }
 
-/* NAVEGAÇÃO INTEGRADA (HERO) */
+/* Navegação */
 .main-nav-hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 40px;
-    position: relative;
-    z-index: 1000;
+    z-index: 10;
 }
 
 .nav-logo-hero {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 0.9em;
-    color: #eee;
-    letter-spacing: 0.25em;
-    word-spacing: 0.4em;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 300;
+    letter-spacing: 8px;
+    text-transform: uppercase;
 }
 
 .nav-links-hero {
-    list-style: none;
     display: flex;
+    list-style: none;
+    gap: 80px;
 }
 
-.nav-links-hero li {
-    margin-left: 50px;
+.nav-links-hero a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
 }
 
-.nav-links-hero a, .dropbtn-hero {
-    color: #eee;
-    font-weight: 400;
-    font-size: 0.85em;
-    padding: 5px 0;
-    letter-spacing: 0.15em;
-    word-spacing: 0.2em;
-    position: relative;
-    white-space: nowrap;
-}
-
-.nav-links-hero a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    display: block;
-    margin-top: 3px;
-    left: 0;
-    background: #eee;
-    transition: width 0.3s ease;
-}
-
-.nav-links-hero a:hover::after {
-    width: 100%;
-}
-
-/* ESTILOS PARA O DROPDOWN */
+/* Dropdown */
 .dropdown {
     position: relative;
-    display: inline-block;
-}
-
-.dropbtn-hero i {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-    font-size: 0.7em;
 }
 
 .dropdown-content-hero {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    min-width: 180px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-    z-index: 1001;
-    border-radius: 5px;
-    overflow: hidden;
-    top: calc(100% + 5px);
-    left: 50%;
-    transform: translateX(-50%);
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
 }
 
 .dropdown-content-hero a {
-    color: #eee;
-    padding: 10px 15px;
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
     display: block;
-    text-align: left;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-size: 0.8em;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    word-spacing: 0.1em;
-}
-
-.dropdown-content-hero a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #fff;
 }
 
 .dropdown:hover .dropdown-content-hero {
     display: block;
 }
 
-.dropdown:hover .dropbtn-hero i {
-    transform: rotate(180deg);
-}
-
-/* ---------------------------------------------------------------------- */
-/* SEÇÃO HERO - CONTEÚDO PRINCIPAL (Just 4 fun) */
+/* Conteúdo Hero */
 .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-    padding: 30px;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-    margin-top: auto;
-    margin-bottom: 20px;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    z-index: 2;
 }
 
 .hero-subtitle {
     font-size: 1.2em;
-    color: #eee;
-    margin-bottom: 0;
-    line-height: 1.4;
-    letter-spacing: 0.2em;
-    word-spacing: 0.3em;
+    font-weight: 300;
+    letter-spacing: 2px;
 }
 
-/* ---------------------------------------------------------------------- */
-/* SEÇÃO SOBRE MIM */
-.about-section {
-    background-color: #ffffff;
-    padding: 100px 30px;
-    text-align: center;
-}
-
-.about-content {
-    max-width: 900px;
-    margin: 0 auto;
-    font-size: 1.1em;
-    color: #444;
-    line-height: 1.7;
-}
-
-.about-content h2 {
-    color: #222;
-}
-
-.about-content p {
-    color: #555;
-}
-
-/* ---------------------------------------------------------------------- */
-/* SEÇÃO DE GALERIA - AGORA COMO CARROSSEL COM SETAS */
+/* Seção Galeria */
 .gallery-section {
-    padding: 80px 0; /* Ajustado para 0 nas laterais para que as imagens possam ir até a borda se quiser */
+    padding: 80px 0;
+    text-align: center;
     background-color: #fcfcfc;
-    position: relative; /* Necessário para posicionar as setas */
-    overflow: hidden; /* Importante para esconder imagens fora da vista */
+    position: relative;
 }
 
 .gallery-section h2 {
-    color: #222; /* Título da galeria em cor escura */
-    margin-bottom: 40px; /* Reduzindo um pouco o margin-bottom para não ter tanto espaço */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-.carousel-container {
-    position: relative;
-    max-width: 100vw; /* Garante que o contêiner do carrossel ocupe toda a largura da viewport */
+.gallery-swiper {
+    max-width: 1536px;
     margin: 0 auto;
-    overflow: hidden; /* Esconde as partes das imagens que estão fora da vista */
-    padding: 0 50px; /* Padding para garantir que as setas tenham espaço nas laterais */
+    padding: 0 160px;
+    position: relative;
 }
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out; /* Transição suave para a rolagem */
-    /* Defina uma largura grande o suficiente para todas as imagens. Isso será ajustado via JS */
+.swiper-slide {
+    width: 290px !important;
 }
 
-.carousel-track img {
-    flex-shrink: 0; /* Impede que as imagens encolham */
-    width: 400px; /* Largura fixa de cada imagem no carrossel (ajuste conforme necessário) */
-    height: 500px; /* Altura fixa de cada imagem no carrossel (ajuste conforme necessário) */
+.swiper-slide img {
+    width: 290px;
+    height: 422px;
     object-fit: cover;
-    margin: 0 15px; /* Espaçamento entre as imagens no carrossel */
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 15px 10px;
-    cursor: pointer;
-    font-size: 1.5em;
-    z-index: 10;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.swiper-slide a {
+    display: block;
+    text-decoration: none;
 }
 
-.carousel-button.prev {
-    left: 10px;
+.swiper-slide:hover img {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.carousel-button.next {
-    right: 10px;
+/* Estilo dos botões de navegação */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 50px !important;
+    height: 50px !important;
+    color: rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s ease;
 }
 
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    color: rgba(0, 0, 0, 0.6) !important;
 }
 
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 35px !important;
+    font-weight: 100;
+}
 
-/* ---------------------------------------------------------------------- */
-/* SEÇÃO DE VÍDEO - AUMENTANDO O TAMANHO */
+/* Seção Vídeo */
 .video-section {
-    padding: 80px 30px;
-    background-color: #ffffff;
+    padding: 20px 0 80px;
     text-align: center;
+    background-color: white;
 }
 
 .video-wrapper {
-    max-width: 1200px; /* Aumentando a largura máxima do vídeo */
+    max-width: 1843px;
     margin: 0 auto;
-    background-color: #000;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    padding: 0 160px;
+    position: relative;
 }
 
 .video-wrapper video {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 640px;
+    object-fit: cover;
 }
 
-/* ---------------------------------------------------------------------- */
-/* SEÇÃO DE CONTATO */
+.sound-control {
+    position: absolute;
+    bottom: 20px;
+    right: 180px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.sound-control i {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.sound-control:hover i {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Seção Contato */
 .contact-section {
     position: relative;
-    width: 100%;
-    min-height: 400px;
-    
-    background-image: url('Portfólio/EdificioPietro.jpeg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 120px 20px;
     text-align: center;
-    color: white;
-    padding: 80px 20px;
-}
-
-.contact-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
+    background-image: url('Portfólio/GradesMar.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .contact-content {
     position: relative;
     z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0;
-    border-radius: 0;
 }
 
 .contact-content h2 {
-    font-size: 3em;
-    color: white;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    margin-top: -50px;
 }
 
 .contact-email {
-    font-size: 1.8em;
-    color: #007bff;
-    font-weight: 400;
-    text-decoration: none;
+    display: inline-block;
     margin-bottom: 30px;
-    display: block;
-    transition: color 0.3s ease;
-}
-
-.contact-email:hover {
-    color: #0056b3;
-    text-decoration: underline;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2em;
 }
 
 .social-icons {
-    margin-top: 40px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 .social-icons a {
-    color: white;
-    font-size: 2.5em;
-    transition: transform 0.3s ease, color 0.3s ease;
+    color: #000;
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover {
-    transform: translateY(-5px) scale(1.1);
-    color: #007bff;
+    color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-2px);
 }
 
-/* ---------------------------------------------------------------------- */
-/* RODAPÉ - REMOVENDO ESPAÇO CINZA */
+/* Footer */
 .main-footer {
-    background-color: #222; /* Fundo escuro */
-    color: #eee;
+    padding: 20px;
     text-align: center;
-    padding: 30px 0;
-    /* margin-top: 80px; foi ajustado, mas o problema pode ser do elemento anterior */
-    font-size: 0.8em;
-
-    /* REMOVER ESPAÇO CINZA: */
-    /* Se houver um espaço cinza entre o contato e o rodapé,
-       isso pode ser um margin-bottom no .contact-section ou um margin-top no .main-footer
-       ou, mais provavelmente, a cor de fundo do body aparecendo entre as seções.
-       Vamos garantir que não há margin-bottom no contact-section e que o footer está colado. */
-    margin-top: 0; /* Garante que o rodapé não tenha margem superior */
-    padding-top: 30px; /* Garante padding interno */
-    padding-bottom: 30px;
+    background-color: white;
+    color: black;
+    font-size: 0.5em;
 }
-/* Se o espaço cinza ainda aparecer, pode ser a cor de fundo do body.
-   Garanta que a seção de contato vá até o fim e o rodapé comece logo em seguida. */
 
-
-/* ---------------------------------------------------------------------- */
-/* RESPONSIVIDADE GERAL */
-@media (max-width: 992px) { /* Tablets maiores e laptops */
+/* Media Queries */
+@media (max-width: 1800px) {
     .main-nav-hero {
-        padding: 0 30px;
+        padding: 35px 300px;
     }
-    .nav-links-hero li {
-        margin-left: 40px;
-    }
-    .nav-logo-hero {
-        font-size: 0.85em;
-        letter-spacing: 0.2em;
-        word-spacing: 0.3em;
-    }
-    .nav-links-hero a, .dropbtn-hero {
-        font-size: 0.75em;
-        letter-spacing: 0.1em;
-        word-spacing: 0.15em;
-    }
-    .hero-content {
-        max-width: 700px;
-    }
-    .hero-subtitle {
-        font-size: 1em;
-        letter-spacing: 0.15em;
-        word-spacing: 0.2em;
-    }
+}
 
-    /* Galeria responsiva */
-    .carousel-track img {
-        width: 300px; /* Largura da imagem em telas médias */
+@media (max-width: 1400px) {
+    .main-nav-hero {
+        padding: 30px 200px;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-nav-hero {
+        padding: 25px 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav-hero {
+        padding: 20px 50px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .gallery-swiper {
+        max-width: 1280px;
+        padding: 0 120px;
+    }
+    .video-wrapper {
+        max-width: 1536px;
+        padding: 0 120px;
+    }
+    .video-wrapper video {
+        height: 560px;
+    }
+}
+
+@media (max-width: 960px) {
+    .gallery-swiper {
+        padding: 0 80px;
+    }
+    .video-wrapper {
+        padding: 0 80px;
+    }
+    .video-wrapper video {
+        height: 480px;
+    }
+}
+
+@media (max-width: 794px) {
+    .gallery-swiper {
+        padding: 0 64px;
+    }
+    .video-wrapper {
+        padding: 0 64px;
+    }
+    .video-wrapper video {
         height: 400px;
     }
+}
 
-    /* Contato responsivo */
-    .contact-section {
-        min-height: 350px;
-        padding: 60px 20px;
+@media (max-width: 614px) {
+    .gallery-swiper {
+        padding: 0 48px;
     }
-    .contact-content h2 {
-        font-size: 2.5em;
-        margin-top: -30px;
+    .video-wrapper {
+        padding: 0 48px;
     }
-    .contact-email {
-        font-size: 1.5em;
-    }
-    .social-icons a {
-        font-size: 2em;
+    .video-wrapper video {
+        height: 320px;
     }
 }
 
-@media (max-width: 768px) { /* Tablets e celulares maiores */
-    .main-nav-hero {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.7);
-        position: static; /* Não flutua em mobile, se posiciona no fluxo */
-        width: 100%;
+@media (max-width: 384px) {
+    .gallery-swiper {
+        padding: 0 32px;
     }
-    .nav-links-hero {
-        flex-direction: column;
-        margin-top: 15px;
-        width: 100%;
+    .video-wrapper {
+        padding: 0 32px;
     }
-    .nav-links-hero li {
-        margin-left: 0;
-        margin-bottom: 10px;
-        width: 100%;
-    }
-    .nav-links-hero a, .dropbtn-hero {
-        font-size: 0.8em;
-        letter-spacing: 0.08em;
-        word-spacing: 0.1em;
-        display: block;
-        text-align: center;
-    }
-    .nav-logo-hero {
-        font-size: 1em;
-        letter-spacing: 0.15em;
-        word-spacing: 0.2em;
-    }
-
-    /* Dropdown em Mobile */
-    .dropdown {
-        width: 100%;
-    }
-    .dropdown-content-hero {
-        position: static;
-        box-shadow: none;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        border-radius: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        width: 100%;
-        transform: none;
-        text-align: center;
-    }
-    .dropdown-content-hero a {
-        font-size: 0.75em;
-        padding: 8px 0;
-        letter-spacing: 0.05em;
-        word-spacing: 0.05em;
-    }
-    .dropbtn-hero i {
-        font-size: 0.6em;
-        margin-left: 3px;
-    }
-
-    .hero-content {
-        max-width: 90%;
-        bottom: 5%;
-    }
-    .hero-subtitle {
-        font-size: 1em;
-        letter-spacing: 0.15em;
-        word-spacing: 0.2em;
-    }
-
-    /* Galeria responsiva */
-    .carousel-track img {
-        width: 250px; /* Largura da imagem em telas pequenas */
-        height: 350px;
-        margin: 0 10px; /* Espaçamento menor entre as imagens */
-    }
-
-    /* Contato responsivo */
-    .contact-section {
-        min-height: 300px;
-        padding: 40px 15px;
-    }
-    .contact-content h2 {
-        font-size: 2em;
-        margin-top: -20px;
-    }
-    .contact-email {
-        font-size: 1.2em;
-    }
-    .social-icons a {
-        font-size: 1.8em;
-    }
-}
-
-@media (max-width: 480px) { /* Celulares pequenos */
-    .hero-section {
-        height: 80vh;
-    }
-    .hero-content {
-        padding: 20px;
-        bottom: 5%;
-    }
-    .hero-subtitle {
-        font-size: 0.9em;
-        letter-spacing: 0.1em;
-        word-spacing: 0.15em;
-    }
-
-    .main-nav-hero {
-        padding: 15px;
-    }
-    .nav-logo-hero {
-        font-size: 0.9em;
-        letter-spacing: 0.1em;
-        word-spacing: 0.15em;
-    }
-    .nav-links-hero a, .dropbtn-hero {
-        font-size: 0.7em;
-        letter-spacing: 0.05em;
-        word-spacing: 0.05em;
-    }
-    .dropdown-content-hero a {
-        font-size: 0.7em;
-        padding: 6px 0;
-        letter-spacing: 0.02em;
-        word-spacing: 0.02em;
-    }
-
-    /* Galeria responsiva */
-    .carousel-track img {
-        width: 200px; /* Largura da imagem em celulares muito pequenos */
-        height: 300px;
-        margin: 0 5px; /* Espaçamento ainda menor */
-    }
-
-    /* Contato responsivo */
-    .contact-section {
-        min-height: 250px;
-        padding: 30px 10px;
-    }
-    .contact-content h2 {
-        font-size: 1.8em;
-        margin-top: -15px;
-    }
-    .contact-email {
-        font-size: 1em;
-    }
-    .social-icons a {
-        font-size: 1.5em;
-    }
-    .main-footer {
-        font-size: 0.7em;
-        padding: 20px 0;
+    .video-wrapper video {
+        height: 240px;
     }
 }
